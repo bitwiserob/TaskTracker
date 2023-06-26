@@ -70,7 +70,6 @@ export default {
     },
     async fetchTasks() {
       const res = await fetch('http://20.116.78.107:80/api/tasks')
-
       const data = await res.json()
       console.log(data);
       return data
@@ -79,7 +78,7 @@ export default {
       const res = await fetch(`http://20.116.78.107:80/api/tasks/${id}`)
 
       const data = await res.json()
-
+      console.log(data);
       return data
     },
   },
