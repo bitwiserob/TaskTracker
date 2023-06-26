@@ -1,17 +1,16 @@
 <template>
   <form @submit="onSubmit" class="add-form">
     <div class="form-control">
-      <label>Task</label>
-      <input type="text" v-model="text" name="text" placeholder="Add Task" />
+      <label>ID</label>
+      <input type="number" v-model="id" name="id" placeholder="Add Id" />
     </div>
     <div class="form-control">
-      <label>Day & Time</label>
-      <input
-        type="text"
-        v-model="day"
-        name="day"
-        placeholder="Add Day & Time"
-      />
+      <label>Title</label>
+      <input type="text" v-model="title" name="title" placeholder="Add Title" />
+    </div>
+    <div class="form-control">
+      <label>Description</label>
+      <input type="text" v-model="desc" name="desc" placeholder="Add Description" />
     </div>
     <div class="form-control form-control-check">
       <label>Set Reminder</label>
@@ -27,8 +26,9 @@ export default {
   name: 'AddTask',
   data() {
     return {
-      text: '',
-      day: '',
+      id: '',
+      title: '',
+      desc:'',
       reminder: false,
     }
   },
@@ -36,22 +36,23 @@ export default {
     onSubmit(e) {
       e.preventDefault()
 
-      if (!this.text) {
+      if (!this.title) {
         alert('Please add a task')
         return
       }
 
       const newTask = {
         // id: Math.floor(Math.random() * 100000),
-        text: this.text,
-        day: this.day,
+        id: this.id,
+        title: this.title,
+        desc: this.desc,
         reminder: this.reminder,
       }
 
       this.$emit('add-task', newTask)
-
-      this.text = ''
-      this.day = ''
+      this.id= Math.floor(Math.random() * 100000);
+      this.title = ''
+      this.desc = ''
       this.reminder = false
     },
   },

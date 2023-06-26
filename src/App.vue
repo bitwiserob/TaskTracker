@@ -4,9 +4,9 @@
       @toggle-add-task="toggleAddTask"
       title="Task Tracker"
       :showAddTask="showAddTask"
-    />
+    ></Header>
     <router-view :showAddTask="showAddTask"></router-view>
-    <Footer />
+    <Footer ></Footer>
   </div>
 </template>
 
